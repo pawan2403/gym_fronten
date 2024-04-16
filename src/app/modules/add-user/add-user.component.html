@@ -1,0 +1,133 @@
+<section class="content">
+    <div class="content-block custom-table">
+        <div class="block-header ">
+            <h5>Create User</h5>
+            <p>User creation providing essential fields and options to ensure accurate and a seamless onboarding
+                process.</p>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <form [formGroup]="myForm" class="m-4" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-2">
+                                    <label for="inputEmail4" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="inputEmail4" placeholder="Name"
+                                        formControlName="name">
+                                    <mat-error
+                                        *ngIf="myForm.get('name')?.touched && myForm.get('name')?.hasError('required')">
+                                        Name is required.
+                                    </mat-error>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-2">
+                                    <label for="inputPassword4" class="form-label">Email </label>
+                                    <input type="email" class="form-control" id="inputPassword4" placeholder="Email"
+                                        formControlName="email">
+                                    <mat-error
+                                        *ngIf="myForm.get('email')?.touched && myForm.get('email')?.hasError('required')">
+                                        Email is required.
+                                    </mat-error>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-2">
+                                    <label for="inputAddress" class="form-label">Contact</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="Contact"
+                                        formControlName="contact">
+                                    <mat-error
+                                        *ngIf="myForm.get('contact')?.touched && myForm.get('contact')?.hasError('required')">
+                                        Contact is required.
+                                    </mat-error>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-2">
+                                    <label for="inputAddress2" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Address"
+                                        formControlName="address">
+                                    <mat-error
+                                        *ngIf="myForm.get('address')?.touched && myForm.get('address')?.hasError('required')">
+                                        Address is required.
+                                    </mat-error>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-2">
+                                    <label for="inputZip" class="form-label">Package</label>
+                                    <mat-select id="inputZip" class="form-control" placeholder="Package"
+                                        formControlName="package" (selectionChange)="onRoleChange($event.value)">
+                                        <mat-option *ngFor="let option of roles" [value]="option.role">{{ option.display
+                                            }}</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 text-end">
+                                    <button routerLink="/dashboard/users" type="button" id="cancelBtn"
+                                        class="msr-2 width80" mat-button>Cancel</button>&nbsp;
+                                    <button mat-raised-button color="primary"
+                                        [disabled]="myForm.invalid">Create</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Country Dropdown -->
+    <select [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+        <option *ngFor="let country of countries" [value]="country.iso">{{ country.name }}</option>
+    </select>
+
+    <!-- Telephone Input -->
+    <input type="text" [(ngModel)]="phoneNumber" [placeholder]="selectedCountryDialCode + ' Enter your phone number'">
+    <!-- <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"></ngx-intl-tel-input> -->
+    <!-- your-component.component.html -->
+    <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+        (selectedCountryChange)="onCountryChanges($event)"></ngx-intl-tel-input>
+
+      <form #f="ngForm" [formGroup]="phoneForm">
+        <div class="wrapper">
+          <ngx-intl-tel-input
+            [cssClass]="'custom'"
+            [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[
+              SearchCountryField.Iso2,
+              SearchCountryField.Name
+            ]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.India"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="separateDialCode"
+            [numberFormat]="PhoneNumberFormat.National"
+            name="phone"
+            formControlName="phone"
+          >
+          </ngx-intl-tel-input>
+        </div>
+        
+      </form>
+      <br />
+      <div>
+        <strong>Is input valid:</strong>
+        <pre>{{ !f.form.controls['phone'].invalid }}</pre>
+      </div>
+      <div>
+        <strong>Is input touched:</strong>
+        <pre>{{ f.form.controls['phone'].touched }}</pre>
+      </div>
+      <div>
+        <strong>Is form valid:</strong>
+        <pre>{{ f.form.valid }}</pre>
+      </div>
+      <div>
+        <strong>Form value:</strong>
+        <pre>{{ f.form.value | json }}</pre>
+      </div>
+      <div>
+        <strong>Form validation errors:</strong>
+        <pre>{{ f.form.controls['phone'].errors | json }}</pre>
+      </div>
+    
+
+</section>

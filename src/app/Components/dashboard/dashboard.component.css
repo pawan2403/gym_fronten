@@ -1,0 +1,76 @@
+/* General styles */
+h1 {
+  padding: 0 1rem;
+}
+
+h2 {
+  padding: 1rem;
+}
+
+/* Toolbar styles */
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+/* Sidenav container styles */
+mat-sidenav-container {
+  height: 100%;
+}
+
+/* Sidenav styles */
+mat-sidenav {
+  padding-top: 3.5rem;
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 600px) {
+  mat-sidenav {
+    padding-top: 4rem;
+  }
+}
+
+/* Sidenav entry styles */
+.mat-sidenav .entry {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+}
+
+/* Sidenav content styles */
+mat-sidenav-content {
+  padding-top: 3.5rem;
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 600px) {
+  mat-sidenav-content {
+    padding-top: 4rem;
+  }
+}
+
+/* Expanded sidenav styles */
+.expanded {
+  width: 210px;
+}
+
+/* Toolbar content styles */
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Toolbar buttons styles */
+.toolbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Spacer styles */
+.spacer {
+  flex: 1;
+}

@@ -1,0 +1,110 @@
+<section class="custom-table">
+  <div class="content-block">
+    <!-- <div class="row clearfix">
+      <div class="col-12 topblockheader">
+        <div class="block-header breadcrumb-subheading">
+          <app-breadcrumb [title]="'Subscriptions'"></app-breadcrumb>
+          <p>The list comprises the subscriptions that have been allocated exclusively to you.</p>
+        </div>
+      </div>
+    </div> -->
+    <div class="row clearfix">
+      <div class="col-12 topblockheader">
+        <div class="block-header breadcrumb-subheading">
+          <h5>Subscriptions</h5>
+          <!-- <app-breadcrumb [title]="'Subscriptions'"></app-breadcrumb> -->
+          <p>The list comprises the subscriptions that have been allocated exclusively to you.</p>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ul class="header-buttons mb-md-0 mb-sm-4 mb-4">
+              <li class="dropdown me-md-4 me-3">
+                <mat-form-field class="search-input">
+                  <input matInput placeholder="Search" #input>
+                </mat-form-field>
+              </li>
+              <li>
+                <div class="d-flex align-items-center">
+                  <button type="submit" class="btn btn-primary create-user-btn">Create Subscription</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row Subscribelist">
+          <div class="col-md-4 col-sm-6 col-12" *ngFor="let subscription of subscriptionsArray; let i=index;">
+            <div class="card subscription-item">
+              <div class="body">
+                <div class="row">
+                  <div class="col-12">
+                    <span>
+                      <h4>Name</h4>
+                      <p>{{subscription.display_Name}}</p>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <span>
+                      <h4>Created Date</h4>
+                      <p>{{subscription.created_Date | date: 'medium'}}</p>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <span>
+                      <h4>Status</h4>
+                      <p>{{subscription.state}}</p>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <span>
+                      <h4>Primary Key</h4>
+                      <p>
+                        <span>{{subscription.primary_Key}}</span>
+                        <span class="copyBtn"><i _ngcontent-ng-c3412083662="" class="far fa-copy"></i></span>
+                      </p>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <span>
+                      <h4>Secondary Key</h4>
+                      <p>
+                        <span>{{subscription.secondary_Key}}</span>
+                        <span class="copyBtn"><i _ngcontent-ng-c3412083662="" class="far fa-copy"></i></span>
+                      </p>
+                    </span>
+                  </div>
+                  <div class="col-12">
+                    <span>
+                      <h4>Tenant Id</h4>
+                      <p>
+                        <!-- <span>{{authService.currentUserValue.tenant_id}}</span> -->
+                        <span class="copyBtn"><i _ngcontent-ng-c3412083662="" class="far fa-copy"></i></span>
+                      </p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tooltipText">
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+          </div>
+        </div>
+        <!-- <div class="card" *ngIf="subscriptionsArray.length <=0">
+            <div class="body">
+                <div class="text-center">
+                  <img src="assets/images/not_found.gif" class="no_data_found">
+                  <p>No data Found! We are unable to find the data you are looking for ,Please try again!</p>
+                </div>
+                <button class="auth-form-btn mx-auto" color="primary" >
+                  Click Here to Subscribe!
+                </button>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </div>
+</section>
