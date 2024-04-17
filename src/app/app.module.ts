@@ -23,7 +23,6 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { WallboardComponent } from './modules/wallboard/wallboard.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
-import {Ng2TelInputModule} from 'ng2-tel-input';
 
 
 @NgModule({
@@ -55,7 +54,7 @@ import {Ng2TelInputModule} from 'ng2-tel-input';
     }),
     LoadingBarModule,
     CanvasJSAngularChartsModule,
-    Ng2TelInputModule
+    
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

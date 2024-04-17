@@ -28,7 +28,6 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.2",
     "jwt-decode": "^3.1.2",
-    "ng2-tel-input": "^2.3.0",
     "ngx-intl-tel-input": "^3.2.0",
     "ngx-intl-tel-input-gg": "^1.0.10",
     "ngx-ui-loader": "^13.0.0",
