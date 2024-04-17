@@ -16,41 +16,6 @@ export class AddUserComponent {
   myForm: FormGroup;
   errorMsg: any;
 
-
-  separateDialCode = false;
-	SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-	phoneForm = new FormGroup({
-		phone: new FormControl(undefined, [Validators.required])
-	});
-
-	changePreferredCountries() {
-		this.preferredCountries = [CountryISO.India, CountryISO.Canada];
-	}
- 
-  selectedCountry: string = 'US'; // Default selected country
-  countries: any[] = [
-    { iso: 'US', name: 'United States', dialCode: '+1' },
-    { iso: 'GB', name: 'United Kingdom', dialCode: '+44' },
-    // Add more countries as needed
-  ];
-  // preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
-  onCountryChanges(event: any) {
-    console.log('Selected country:', event.iso2);
-    console.log('Dial code:', event.dialCode);
-    // You can perform additional actions here based on the selected country
-  }
-
-  selectedCountryDialCode: string = '+1'; // Default dial code for selected country
-  phoneNumber: string = '';
-
-  onCountryChange() {
-    const selectedCountryObj = this.countries.find(country => country.iso === this.selectedCountry);
-    this.selectedCountryDialCode = selectedCountryObj ? selectedCountryObj.dialCode : '';
-  }
-
   constructor(private formBuilder: FormBuilder, private auth_service: AuthserviceService, private route: Router, private datePipe: DatePipe) {
     this.myForm = this.formBuilder.group({
       name: ['', Validators.required],
